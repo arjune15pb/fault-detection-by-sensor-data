@@ -45,13 +45,14 @@ def predictRouteClient():
             print(path)
             
             pred_val = pred_validation(path) #object initialization
-
+            print("pred_val")
             pred_val.prediction_validation() #calling the prediction_validation function
-
+            print("line 50")
             pred = prediction(path) #object initialization
-
+            print("line 52)
             # predicting for dataset present in database
             path,json_predictions = pred.predictionFromModel()
+            print("Prediction done")
             return Response("Prediction File created at !!!"  +str(path) +'and few of the predictions are '+str(json.loads(json_predictions) ))
         else:
             print('Nothing Matched')
