@@ -38,8 +38,9 @@ class prediction:
             print("Preprocessing done")
             #data=data.to_numpy()
             file_loader=file_methods.File_Operation(self.file_object,self.log_writer)
+            print("file loaded for kmeans")
             kmeans=file_loader.load_model('KMeans')
-            print("Kmeans loaded")
+            print("Kmeans loaded",kmeans)
             ##Code changed
             #pred_data = data.drop(['Wafer'],axis=1)
             clusters=kmeans.predict(data.drop(['Wafer'],axis=1))#drops the first column for cluster prediction
