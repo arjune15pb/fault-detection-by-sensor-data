@@ -39,10 +39,11 @@ class prediction:
             #data=data.to_numpy()
             file_loader=file_methods.File_Operation(self.file_object,self.log_writer)
             kmeans=file_loader.load_model('KMeans')
-
+            print("Kmeans loaded")
             ##Code changed
             #pred_data = data.drop(['Wafer'],axis=1)
             clusters=kmeans.predict(data.drop(['Wafer'],axis=1))#drops the first column for cluster prediction
+            
             print("cluster created")
             data['clusters']=clusters
             clusters=data['clusters'].unique()
